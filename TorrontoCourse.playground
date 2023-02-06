@@ -1,0 +1,122 @@
+import UIKit
+
+//var greeting = "Hello, Guys"
+
+
+// Switch case
+
+let name = "Leshka"
+
+switch name.count {
+case 7...10:
+    print ("Long name")
+case 5..<7:
+    print ("Medium name")
+case 0..<5:
+    print ("Short name")
+default:
+    print ("Not found")
+}
+
+// Arrays and Dictionaries
+
+// 1
+
+var animals = ["Cow", "Dog", "Bunny"]
+animals[0]
+animals[2] = "Cat"
+animals
+
+// 2
+
+var cuteness = ["Cow": "Not very",
+                "Cat": "Medium",
+                "Bunny": "Very cute"
+]
+cuteness["Cat"]
+
+for animal in animals {
+    cuteness[animal]
+}
+
+// Functions
+
+func result(operation:String, a: Double, b: Double) -> Double {
+    print("Performing", operation, "on", a, "and", b)
+    var allResult: Double = 0
+    switch operation {
+        case "+": allResult = a + b
+        case "-": allResult = a - b
+        case "*": allResult = a * b
+        case "/": allResult = a / b
+    default: print("Bad operation:", operation)
+    }
+    return allResult
+}
+let resultMath = result(operation: "*", a: 1.0, b: 2.0)
+print (resultMath)
+
+// 2D Arrays
+
+var image = [
+    [3, 7, 10],
+    [12, 6, 9],
+    [8, 1, 4]
+]
+
+func resultValuesOfImage(image:inout [[Int]]) {
+    for row in 0..<image.count {
+        for col in 0..<image[row].count {
+            image[row][col]
+            if (image[row] [col] < 5) {
+                image[row] [col] = 5
+            }
+        }
+    }
+    image
+}
+
+resultValuesOfImage(image: &image)
+
+// Optionals, Closures and Properties
+
+//  1
+var maybeStr: String? = "Hello, Aleshka"
+maybeStr!.count
+
+
+// 2
+var newMagicFunction = {
+    (spell: String) -> String in
+    return spell
+}
+
+newMagicFunction("desappear")
+
+// 3
+struct man {
+    var name: String
+    var heightCM = 0.0
+    var heightINCH: Double {
+        get {
+            return 2.54 * heightCM
+        }
+        set (newHeightINCH) {
+            heightCM = newHeightINCH / 2.54
+        }
+    }
+}
+
+var Lesha = man (name: "Lesha", heightCM: 165)
+Lesha.heightCM
+Lesha.heightINCH
+
+Lesha.heightCM = 130
+Lesha.heightINCH
+
+
+// Introduction to Image Processing
+
+
+let imageScreen = UIImage(named: "ava.jpg")
+
